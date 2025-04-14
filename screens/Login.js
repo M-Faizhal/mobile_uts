@@ -15,11 +15,11 @@ const LoginScreen = ({ navigation, setUser }) => {
     const handleLogin = () => {
       const validEmail = "johndoe@example.com";
       const validPassword = "password123";
-  
+    
       if (email === validEmail && password === validPassword) {
-        setUser({ name: "John Doe", email }); // Set user data
+        setUser({ name: "John Doe", email }); 
         Alert.alert("Login Successful", "Welcome back!", [
-          { text: "OK", onPress: () => navigation.navigate("Profile") },
+          { text: "OK", onPress: () => navigation.navigate("BottomTabs") }, 
         ]);
       } else {
         Alert.alert("Login Failed", "Invalid email or password.");

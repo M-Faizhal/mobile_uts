@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 
 const dummySongs = [
   { id: "1", title: "Sunset Breeze" },
@@ -8,7 +8,7 @@ const dummySongs = [
   { id: "4", title: "Late Vibes" },
 ];
 
-const PlaylistDetailScreen = ({ route }) => {
+const PlaylistDetailScreen = ({ route, navigation }) => {
   const { playlist } = route.params;
 
   return (
@@ -21,9 +21,12 @@ const PlaylistDetailScreen = ({ route }) => {
         data={dummySongs}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.songItem}>
+          <TouchableOpacity
+            style={styles.songItem}
+            onPress={() => navigation.navigate("Player", { song: item })}
+          >
             <Text style={styles.songTitle}>{item.title}</Text>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
