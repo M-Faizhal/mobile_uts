@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./screens/Login";
 import ProfileScreen from "./screens/ShowProfile";
 import EditProfileScreen from "./screens/EditProfile";
+import Library from "./screens/Library";
+import DetailLibrary from "./screens/DetailLibrary";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,16 +16,18 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? "Profile" : "Login"}>
         <Stack.Screen name="Login">
-          {props => <LoginScreen {...props} setUser={setUser} />}
+          {(props) => <LoginScreen {...props} setUser={setUser} />}
         </Stack.Screen>
         <Stack.Screen name="Profile">
-          {props => <ProfileScreen {...props} user={user} />}
+          {(props) => <ProfileScreen {...props} user={user} />}
         </Stack.Screen>
         <Stack.Screen name="EditProfile">
-          {props => (
+          {(props) => (
             <EditProfileScreen {...props} user={user} setUser={setUser} />
           )}
         </Stack.Screen>
+        <Stack.Screen name="DetailLibrary" component={DetailLibrary} />
+        <Stack.Screen name="Library" component={Library} />
       </Stack.Navigator>
     </NavigationContainer>
   );
