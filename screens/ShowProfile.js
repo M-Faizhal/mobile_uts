@@ -8,6 +8,20 @@ import {
 
 
 const ProfileScreen = ({ navigation, user }) => {
+  if (!user) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.name}>No user data available</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Login")}
+        >
+          <Text style={styles.buttonText}>Go to Login</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.name}>{user.name}</Text>
@@ -26,7 +40,6 @@ const ProfileScreen = ({ navigation, user }) => {
     </View>
   );
 };
-
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
