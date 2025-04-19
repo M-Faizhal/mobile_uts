@@ -1,5 +1,12 @@
 import { StyleSheet, View, Text, ScrollView, FlatList, TouchableOpacity, Image } from "react-native";
 
+import blindingCover from "../img/blinding.jpeg";
+import shapeCover from "../img/shape.jpeg";
+import levitatingCover from "../img/levitating.jpeg";
+import badCover from "../img/bad.jpeg";
+import stayCover from "../img/stay.jpeg";
+import peachesCover from "../img/peaches.jpeg";
+
 const HomeScreen = ({ navigation, user }) => {
   const categories = [
     { id: "1", name: "Pop" },
@@ -11,12 +18,12 @@ const HomeScreen = ({ navigation, user }) => {
   ];
 
   const popularSongs = [
-    { id: "1", title: "Blinding Lights", artist: "The Weeknd", cover: "https://via.placeholder.com/100" },
-    { id: "2", title: "Shape of You", artist: "Ed Sheeran", cover: "https://via.placeholder.com/100" },
-    { id: "3", title: "Levitating", artist: "Dua Lipa", cover: "https://via.placeholder.com/100" },
-    { id: "4", title: "Bad Guy", artist: "Billie Eilish", cover: "https://via.placeholder.com/100" },
-    { id: "5", title: "Stay", artist: "The Kid LAROI, Justin Bieber", cover: "https://via.placeholder.com/100" },
-    { id: "6", title: "Peaches", artist: "Justin Bieber", cover: "https://via.placeholder.com/100" },
+    { id: "1", title: "Blinding Lights", artist: "The Weeknd", cover: blindingCover },
+    { id: "2", title: "Shape of You", artist: "Ed Sheeran", cover: shapeCover },
+    { id: "3", title: "Levitating", artist: "Dua Lipa", cover: levitatingCover },
+    { id: "4", title: "Bad Guy", artist: "Billie Eilish", cover: badCover },
+    { id: "5", title: "Stay", artist: "The Kid LAROI, Justin Bieber", cover: stayCover },
+    { id: "6", title: "Peaches", artist: "Justin Bieber", cover: peachesCover },
   ];
 
   return (
@@ -51,7 +58,7 @@ const HomeScreen = ({ navigation, user }) => {
             style={styles.songCard}
             onPress={() => navigation.navigate("Player", { song })}
           >
-            <Image source={{ uri: song.cover }} style={styles.songCover} />
+            <Image source={song.cover} style={styles.songCover} />
             <View style={styles.songInfo}>
               <Text style={styles.songTitle}>{song.title}</Text>
               <Text style={styles.songArtist}>{song.artist}</Text>
@@ -114,12 +121,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   songTitle: {
-    color: "#333", // Teks gelap untuk kontras
+    color: "#333",
     fontSize: 16,
     fontWeight: "bold",
   },
   songArtist: {
-    color: "#666", // Warna teks abu-abu untuk detail
+    color: "#666", 
     fontSize: 14,
   },
 });

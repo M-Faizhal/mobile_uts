@@ -1,13 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
 
+import blindingCover from "../img/blinding.jpeg";
+import shapeCover from "../img/shape.jpeg";
+import levitatingCover from "../img/levitating.jpeg";
+import badCover from "../img/bad.jpeg";
+import stayCover from "../img/stay.jpeg";
+import peachesCover from "../img/peaches.jpeg";
+
 const popularSongs = [
-  { id: "1", title: "Blinding Lights", artist: "The Weeknd", cover: "https://via.placeholder.com/100" },
-  { id: "2", title: "Shape of You", artist: "Ed Sheeran", cover: "https://via.placeholder.com/100" },
-  { id: "3", title: "Levitating", artist: "Dua Lipa", cover: "https://via.placeholder.com/100" },
-  { id: "4", title: "Bad Guy", artist: "Billie Eilish", cover: "https://via.placeholder.com/100" },
-  { id: "5", title: "Stay", artist: "The Kid LAROI, Justin Bieber", cover: "https://via.placeholder.com/100" },
-  { id: "6", title: "Peaches", artist: "Justin Bieber", cover: "https://via.placeholder.com/100" },
+  { id: "1", title: "Blinding Lights", artist: "The Weeknd", cover: blindingCover },
+  { id: "2", title: "Shape of You", artist: "Ed Sheeran", cover: shapeCover },
+  { id: "3", title: "Levitating", artist: "Dua Lipa", cover: levitatingCover },
+  { id: "4", title: "Bad Guy", artist: "Billie Eilish", cover: badCover },
+  { id: "5", title: "Stay", artist: "The Kid LAROI, Justin Bieber", cover: stayCover },
+  { id: "6", title: "Peaches", artist: "Justin Bieber", cover: peachesCover },
 ];
 
 const PlaylistDetailScreen = ({ route, navigation }) => {
@@ -27,7 +34,7 @@ const PlaylistDetailScreen = ({ route, navigation }) => {
             style={styles.songItem}
             onPress={() => navigation.navigate("Player", { song: item })}
           >
-            <Image source={{ uri: item.cover }} style={styles.songCover} />
+            <Image source={item.cover} style={styles.songCover} />
             <View style={styles.songInfo}>
               <Text style={styles.songTitle}>{item.title}</Text>
               <Text style={styles.songArtist}>{item.artist}</Text>
@@ -45,12 +52,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#E8F6FF", 
+    backgroundColor: "#E8F6FF",
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333", 
+    color: "#333",
     marginBottom: 10,
   },
   description: {
@@ -84,7 +91,7 @@ const styles = StyleSheet.create({
   },
   songTitle: {
     fontSize: 16,
-    color: "#333", 
+    color: "#333",
     fontWeight: "bold",
   },
   songArtist: {

@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Image, Animated } from "react-native";
 
+import logo from "../img/Logo.png";
+
 const SplashScreen = ({ navigation }) => {
   const fadeAnim = new Animated.Value(0);
 
   useEffect(() => {
- 
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 2000, 
+      duration: 2000,
       useNativeDriver: true,
     }).start();
 
+  
     const timer = setTimeout(() => {
       navigation.replace("Login"); 
     }, 3000);
@@ -23,7 +25,7 @@ const SplashScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Animated.View style={{ opacity: fadeAnim }}>
         <Image
-          source={{ uri: "https://via.placeholder.com/150" }}
+          source={logo}
           style={styles.logo}
         />
         <Text style={styles.appName}>LOOPIA</Text>

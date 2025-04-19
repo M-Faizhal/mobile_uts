@@ -43,16 +43,16 @@ const ProfileScreen = ({ navigation, user }) => {
 
       <TouchableOpacity
         style={[styles.button, styles.logoutButton]}
-        onPress={handleLogout}
+        onPress={() => navigation.navigate("About")} 
       >
-        <Text style={[styles.buttonText, styles.logoutText]}>Logout</Text>
+        <Text style={[styles.buttonText, styles.logoutText]}>About</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.button, styles.logoutButton]}
-        onPress={() => navigation.navigate("About")} 
+        onPress={handleLogout}
       >
-        <Text style={[styles.buttonText, styles.logoutText]}>About</Text>
+        <Text style={[styles.buttonText, styles.logoutText]}>Logout</Text>
       </TouchableOpacity>
     </View>
   );

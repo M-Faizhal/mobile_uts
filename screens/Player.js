@@ -17,7 +17,7 @@ const PlayerScreen = ({ route }) => {
         <View style={styles.container}>
             {/* Cover Art */}
             <Image
-                source={{ uri: song.cover }}
+                source={song.cover} 
                 style={styles.coverArt}
             />
 
@@ -61,6 +61,7 @@ const PlayerScreen = ({ route }) => {
     );
 };
 
+// Helper function to format time
 const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
