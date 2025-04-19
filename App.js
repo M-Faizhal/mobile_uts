@@ -9,6 +9,8 @@ import EditProfileScreen from "./screens/EditProfile";
 import LibraryScreen from "./screens/Library";
 import DetailLibrary from "./screens/DetailLibrary";
 import PlayerScreen from "./screens/Player";
+import AboutScreen from "./screens/About";
+import SplashScreen from "./screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -34,7 +36,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={user ? "BottomTabs" : "Login"}>
+     
+      <Stack.Navigator initialRouteName={"Splash"}>
         <Stack.Screen 
         name="Login"
         options={{ headerShown: false }}
@@ -63,6 +66,12 @@ export default function App() {
         options={{ headerShown: false }}
         >
           {(props) => <PlayerScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="About" options={{ headerShown: false }}>
+          {(props) => <AboutScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Splash" options={{ headerShown: false }}>
+          {(props) => <SplashScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

@@ -4,10 +4,10 @@ import Slider from "@react-native-community/slider";
 import Icon from "react-native-vector-icons/Ionicons";
 
 const PlayerScreen = ({ route }) => {
-    const { song } = route.params; // Get song data from navigation
+    const { song } = route.params; 
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(240); // Example duration in seconds
+    const [duration, setDuration] = useState(240); 
 
     const togglePlayPause = () => {
         setIsPlaying(!isPlaying);
@@ -17,13 +17,13 @@ const PlayerScreen = ({ route }) => {
         <View style={styles.container}>
             {/* Cover Art */}
             <Image
-                source={{ uri: "https://via.placeholder.com/300" }} // Replace with your image URL
+                source={{ uri: song.cover }}
                 style={styles.coverArt}
             />
 
             {/* Song Info */}
             <Text style={styles.songTitle}>{song.title}</Text>
-            <Text style={styles.artistName}>Artist Name</Text>
+            <Text style={styles.artistName}>{song.artist}</Text>
 
             {/* Slider */}
             <Slider
@@ -32,9 +32,9 @@ const PlayerScreen = ({ route }) => {
                 maximumValue={duration}
                 value={currentTime}
                 onValueChange={(value) => setCurrentTime(value)}
-                minimumTrackTintColor="#1DB954"
-                maximumTrackTintColor="#ccc"
-                thumbTintColor="#1DB954"
+                minimumTrackTintColor="#1D7BB9FF"
+                maximumTrackTintColor="#555"
+                thumbTintColor="#1D7BB9FF"
             />
             <View style={styles.timeContainer}>
                 <Text style={styles.timeText}>{formatTime(currentTime)}</Text>
@@ -50,7 +50,7 @@ const PlayerScreen = ({ route }) => {
                     <Icon
                         name={isPlaying ? "pause-circle" : "play-circle"}
                         size={70}
-                        color="#1DB954"
+                        color="#1D7BB9FF"
                     />
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -61,7 +61,6 @@ const PlayerScreen = ({ route }) => {
     );
 };
 
-// Helper function to format time
 const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
@@ -73,7 +72,7 @@ export default PlayerScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#121212",
+        backgroundColor: "#1E2A38", 
         alignItems: "center",
         justifyContent: "center",
         padding: 20,
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
     },
     artistName: {
         fontSize: 18,
-        color: "#ccc",
+        color: "#ccc", 
         textAlign: "center",
         marginBottom: 20,
     },
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     timeText: {
-        color: "#ccc",
+        color: "#ccc", 
         fontSize: 14,
     },
     controls: {

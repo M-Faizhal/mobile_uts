@@ -1,11 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
 
-const dummySongs = [
-  { id: "1", title: "Sunset Breeze" },
-  { id: "2", title: "Ocean Waves" },
-  { id: "3", title: "Night Chill" },
-  { id: "4", title: "Late Vibes" },
+const popularSongs = [
+  { id: "1", title: "Blinding Lights", artist: "The Weeknd", cover: "https://via.placeholder.com/100" },
+  { id: "2", title: "Shape of You", artist: "Ed Sheeran", cover: "https://via.placeholder.com/100" },
+  { id: "3", title: "Levitating", artist: "Dua Lipa", cover: "https://via.placeholder.com/100" },
+  { id: "4", title: "Bad Guy", artist: "Billie Eilish", cover: "https://via.placeholder.com/100" },
+  { id: "5", title: "Stay", artist: "The Kid LAROI, Justin Bieber", cover: "https://via.placeholder.com/100" },
+  { id: "6", title: "Peaches", artist: "Justin Bieber", cover: "https://via.placeholder.com/100" },
 ];
 
 const PlaylistDetailScreen = ({ route, navigation }) => {
@@ -18,14 +20,18 @@ const PlaylistDetailScreen = ({ route, navigation }) => {
 
       <Text style={styles.songHeader}>Songs in this Playlist:</Text>
       <FlatList
-        data={dummySongs}
+        data={popularSongs}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.songItem}
             onPress={() => navigation.navigate("Player", { song: item })}
           >
-            <Text style={styles.songTitle}>{item.title}</Text>
+            <Image source={{ uri: item.cover }} style={styles.songCover} />
+            <View style={styles.songInfo}>
+              <Text style={styles.songTitle}>{item.title}</Text>
+              <Text style={styles.songArtist}>{item.artist}</Text>
+            </View>
           </TouchableOpacity>
         )}
       />
@@ -39,30 +45,50 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#E8F6FF", 
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
+    color: "#333", 
+    marginBottom: 10,
   },
   description: {
     fontSize: 16,
-    color: "#666",
+    color: "#444", 
     marginBottom: 20,
   },
   songHeader: {
     fontSize: 20,
     fontWeight: "600",
+    color: "#333", 
     marginBottom: 10,
     marginTop: 10,
   },
   songItem: {
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderColor: "#eee",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#F0F4F8", 
+    padding: 10,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  songCover: {
+    width: 50,
+    height: 50,
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  songInfo: {
+    flex: 1,
   },
   songTitle: {
     fontSize: 16,
-    color: "#333",
+    color: "#333", 
+    fontWeight: "bold",
+  },
+  songArtist: {
+    fontSize: 14,
+    color: "#666",
   },
 });
