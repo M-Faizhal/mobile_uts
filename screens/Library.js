@@ -51,17 +51,18 @@ export default LibraryScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#E8F6FF", 
     paddingTop: 50,
     paddingHorizontal: 20,
   },
   header: {
     fontSize: 28,
     fontWeight: "bold",
+    color: "#333", 
     marginBottom: 20,
   },
   playlistButton: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#F0F4F8", 
     padding: 20,
     borderRadius: 16,
     marginBottom: 15,
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   playlistTitle: {
     fontSize: 18,
     fontWeight: "600",
-    color: "#333",
+    color: "#333", 
   },
   playlistDesc: {
     fontSize: 14,

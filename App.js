@@ -35,21 +35,33 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? "BottomTabs" : "Login"}>
-        <Stack.Screen name="Login">
+        <Stack.Screen 
+        name="Login"
+        options={{ headerShown: false }}
+        >
           {(props) => <LoginScreen {...props} setUser={setUser} />}
         </Stack.Screen>
         <Stack.Screen name="BottomTabs" options={{ headerShown: false }}>
           {(props) => <BottomTabs {...props} user={user} />}
         </Stack.Screen>
-        <Stack.Screen name="EditProfile">
+        <Stack.Screen 
+        name="EditProfile"
+        options={{ headerShown: false }}
+        >
           {(props) => (
             <EditProfileScreen {...props} user={user} setUser={setUser} />
           )}
         </Stack.Screen>
-        <Stack.Screen name="DetailLibrary">
+        <Stack.Screen 
+        name="DetailLibrary"
+        options={{ headerShown: false }}
+        >
           {(props) => <DetailLibrary {...props} />}
         </Stack.Screen>
-        <Stack.Screen name="Player">
+        <Stack.Screen 
+        name="Player"
+        options={{ headerShown: false }}
+        >
           {(props) => <PlayerScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>

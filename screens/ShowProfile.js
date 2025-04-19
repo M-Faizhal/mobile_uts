@@ -8,6 +8,13 @@ import {
 
 
 const ProfileScreen = ({ navigation, user }) => {
+  const handleLogout = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Login" }],
+    });
+  };
+
   if (!user) {
     return (
       <View style={styles.container}>
@@ -34,7 +41,10 @@ const ProfileScreen = ({ navigation, user }) => {
         <Text style={styles.buttonText}>Edit Profile</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.button, styles.logoutButton]}>
+      <TouchableOpacity
+        style={[styles.button, styles.logoutButton]}
+        onPress={handleLogout}
+      >
         <Text style={[styles.buttonText, styles.logoutText]}>Logout</Text>
       </TouchableOpacity>
 
@@ -47,12 +57,13 @@ const ProfileScreen = ({ navigation, user }) => {
     </View>
   );
 };
+
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4",
+    backgroundColor: "#E8F6FF", 
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -60,15 +71,16 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#222",
+    color: "#333",
+    marginBottom: 10,
   },
   email: {
     fontSize: 16,
-    color: "#666",
+    color: "#666", 
     marginBottom: 30,
   },
   button: {
-    backgroundColor: "#4a90e2",
+    backgroundColor: "#A7C7E7", 
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 25,
@@ -77,15 +89,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    color: "#fff",
+    color: "#fff", 
     fontSize: 16,
   },
   logoutButton: {
-    backgroundColor: "#fff",
+    backgroundColor: "#F0F4F8", 
     borderWidth: 1,
-    borderColor: "#4a90e2",
+    borderColor: "#A7C7E7",
   },
   logoutText: {
-    color: "#4a90e2",
+    color: "#333", 
   },
 });

@@ -17,9 +17,17 @@ const LoginScreen = ({ navigation, setUser }) => {
       const validPassword = "password123";
     
       if (email === validEmail && password === validPassword) {
-        setUser({ name: "John Doe", email }); 
+        const user = { name: "John Doe", email };
+        setUser(user);
         Alert.alert("Login Successful", "Welcome back!", [
-          { text: "OK", onPress: () => navigation.navigate("BottomTabs") }, 
+          {
+            text: "OK",
+            onPress: () =>
+              navigation.reset({
+                index: 0,
+                routes: [{ name: "BottomTabs" }], 
+              }),
+          },
         ]);
       } else {
         Alert.alert("Login Failed", "Invalid email or password.");
@@ -56,7 +64,7 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4",
+    backgroundColor: "#E8F6FF", 
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -64,7 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#222",
+    color: "#333", 
     marginBottom: 20,
   },
   input: {
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
   },
   button: {
-    backgroundColor: "#4a90e2",
+    backgroundColor: "#A7C7E7", 
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 25,
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    color: "#fff",
+    color: "#fff", 
     fontSize: 16,
   },
 });
