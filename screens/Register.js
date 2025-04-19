@@ -7,29 +7,31 @@ import {
   StyleSheet,
 } from "react-native";
 
-const LoginScreen = ({ navigation, setUser }) => {
+const RegisterScreen = ({ navigation }) => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    const validEmail = "johndoe@example.com";
-    const validPassword = "password123";
+  const handleRegister = () => {
+    if (name && email && password) {
+      const user = { name, email };
+      console.log("User Registered:", user);
 
-    if (email === validEmail && password === validPassword) {
-      const user = { name: "John Doe", email };
-      setUser(user);
-      navigation.reset({
-        index: 0,
-        routes: [{ name: "BottomTabs" }],
-      });
+      navigation.navigate("Login");
     } else {
-      alert("Invalid email or password.");
+      alert("Please fill in all fields.");
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Register</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        value={name}
+        onChangeText={setName}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -45,20 +47,20 @@ const LoginScreen = ({ navigation, setUser }) => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+        <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.link}
-        onPress={() => navigation.navigate("Register")} 
+        onPress={() => navigation.navigate("Login")}
       >
-        <Text style={styles.linkText}>Don't have an account? Register</Text>
+        <Text style={styles.linkText}>Already have an account? Login</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
   container: {

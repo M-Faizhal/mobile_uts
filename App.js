@@ -12,6 +12,7 @@ import DetailLibrary from "./screens/DetailLibrary";
 import PlayerScreen from "./screens/Player";
 import AboutScreen from "./screens/About";
 import SplashScreen from "./screens/SplashScreen";
+import RegisterScreen from "./screens/Register";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -60,6 +61,9 @@ export default function App() {
       <Stack.Navigator initialRouteName={"Splash"}>
         <Stack.Screen name="Login" options={{ headerShown: false }}>
           {(props) => <LoginScreen {...props} setUser={setUser} />}
+        </Stack.Screen>
+        <Stack.Screen name="Register" options={{ headerShown: false }}>
+          {(props) => <RegisterScreen {...props} />}
         </Stack.Screen>
         <Stack.Screen name="BottomTabs" options={{ headerShown: false }}>
           {(props) => <BottomTabs {...props} user={user} />}
